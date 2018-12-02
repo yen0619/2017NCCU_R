@@ -1,15 +1,18 @@
 ---
 title: "Rmarkdown"
-author: "Peng-Wen Lin (Source from DSP Data Lab)"
+author: "Chun-Yen Chen (Source from DSP Data Lab)"
+date: "2018/12/10"
 output:
   ioslides_presentation:
     css: css/dsp.css
+    # logo: img/IMG_5342.HEIC.jpeg
     # logo: assets/img/Taiwan-R-logo.png
     widescreen: yes
     self_contained: false
 ---
 
 ```{r setup, include=FALSE, cache=FALSE}
+setwd("~/Documents/2018NCCU_R/week04/")
 suppressPackageStartupMessages({
   library(knitr) 
   library(magrittr)
@@ -63,8 +66,9 @@ las2 <- theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ##  資料分析流程
 - 資料採集
 - 資料清洗處理
-- 統計及分析
 - 視覺呈現
+- 統計及分析
+
 
 > - <p style="color:#750000;font-size:36px;">報告產出</p>
 
@@ -119,10 +123,13 @@ install.packages("rmarkdown")
 
 # R Markdown 快速導覽
 
+
+
 ## 打開你第一個RMarkdown
 
 `Document`
 <center>
+<img src="img/openRMD.png" width="900px">
 <img src="img/openRMD.png" width="600px">
 </center>
 
@@ -152,7 +159,7 @@ install.packages("rmarkdown")
     * 行內`$ equation $`   
     * 段落 `$$ equation $$`
 - for example :
-    - 這是DSP推出的第 `r  3+1` 門課程
+    - 這是集訓班推出的第 `r  3+1` 門課程
     - 熵指標的公式為$-\sum{p_i \log{p_i}}$ ，表示系統的亂度
     - [markdown 公式輸入參考](http://oiltang.com/2014/05/04/markdown-and-mathjax/)
     
@@ -179,13 +186,13 @@ rmarkdown::render("input.Rmd")
 ## 標題！
 
 ### Headers
-- 字體大小：使用井字號
-    - `# Header 1`
-    - `## Header 2`
-    - `### Header 3`
-    - `#### Header 4`
-    - `##### Header 5`
-    - `###### Header 6`
+- 字體大小：使用井字號    
+    - `# Header 1`<img  src="img/header1.png" >
+    - `## Header 2`<img  src="img/header2.png" >
+    - `### Header 3`<img  src="img/header3.png" >
+    - `#### Header 4`<img  src="img/header4.png" >
+    - `##### Header 5`<img  src="img/header5.png" >
+    - `###### Header 6`<img  src="img/header6.png" >
 
 
 ## 字體！
@@ -193,13 +200,15 @@ rmarkdown::render("input.Rmd")
 - 我是正常文字
 - 粗體：使用`**bold**` 或 `__bold__` 
 - 斜體：使用 `*italics*` 或 `_italics_`
-- 刪除線：使用`~~我是豬~~`
+- 刪除線：使用`~~我是天才~~`
 
 <p style="color:#0000C6;">結果：</p>
 - 我是正常文字\
 - **粗體：bold** \
 - *斜體：italics* \
-- 刪除線：~~我是豬~~
+- 刪除線：~~我是天才~~
+
+
 
 ## Attach pictures
 - 貼上照片
@@ -216,9 +225,9 @@ rmarkdown::render("input.Rmd")
 ## 先來簡單的複製貼上！
 - 利用`+`、`*`、`-`，列點文字
 - 嵌入圖片： `image: ![](path/to/smallorb.png) `
-- 嵌入連結：`[木下柚香](https://www.youtube.com/watch?v=ArPaid2Iuck&t=49s)`
+- 嵌入連結：`[木下柚香](https://youtu.be/RlmeFHIwzKA?t=88)`
 - 嵌入表格：
-    ```
+  ```{}
        標題一     |    標題二     
     -------------| ------------- 
         123      |    456        
@@ -228,55 +237,47 @@ rmarkdown::render("input.Rmd")
 ## Exercise - 1
 <p style="color:#003E3E;">請大家以下面的文字為樣板，打出一篇簡短的自我介紹：</p>
 
-大家好，我是**Nicole**`(1.使用粗體)`，目前就讀於國立政治大學，家裡共有：
+大家好，我是**Glen**`(1.使用粗體)`，目前就讀於國立政治大學，家裡共有：
 
 `(2.請列點)`
 
 - 我爸\
 - 我媽\
 - 我\
-- 我妹妹\
+- 我哥哥\
 
-有四個成員，我是女生，我長這樣：
+有四個成員，我是男生，我長這樣：
 `(3.請放照片)`
 <img src="img/me.png" width="50px">
 
 `(4.請放你的臉書連結)`
-想要和我做朋有的人可以加我[臉書](https://www.facebook.com/profile.php?id=100000344369057)
+想要和我做朋有的人可以加我[臉書](https://www.facebook.com/ChenChunYen0619) ~~歡迎加我好友~~
 
 
 ## Answer - 1
 
 ```
-大家好，我是**Nicole**(1.使用粗體)，目前就讀於國立政治大學，家裡共有：\
+大家好，我是**Glen**(1.使用粗體)，目前就讀於國立政治大學，家裡共有：\
 
 + 我爸 \
 + 我媽 \
 + 我 \
-+ 我妹妹 \
++ 我哥哥 \
 
-有四個成員，我是女生，我長這樣：![](你的圖片路徑) 
+有四個成員，我是男生，我長這樣：![](你的圖片路徑) 
 
 想要和我做朋有的人可以加我[臉書](臉書路徑)
 
 ```
 
-## 補充
-- 連結網站
-- [iframe](http://www.w3schools.com/tags/tag_iframe.asp): displaying a web page within a web page
-
-```html
-<iframe src="https://dsp.im/" height=600 width=800></iframe>
-```
-<iframe src="https://dsp.im/" height=600 width=800></iframe>
 
 
 # R Code Chunks
 
 ## Overview
 - 在 R Code Chunk 中，code可以被執行
-- code會被```{r}及```包圍
-- 快捷鍵（for windows、mac）：alt + control/command + i
+- code會被` ```{r}及 ``` `包圍
+- 快捷鍵（for windows、mac）：alt + control + i **/** option + command + i
 - 將下列文字複製貼上並Knit：
 
 <pre class="markdown"><code>&#96;&#96;&#96;{r}
@@ -315,7 +316,7 @@ plot(cars)
 - `defult`：show code and output 
 - `echo = FALSE` ：only show output
 - `eval = FALSE` ：only show code
-- `include = FALSE` ： run code and don't show output
+- `include = FALSE` ： run code but don't show code & output 
 
 ## Basic Chunk Options - 3
 
@@ -375,7 +376,8 @@ iris %>%
 &#96;&#96;&#96;
 </code></pre>
 
-## Exercise - 3
+## Exercise - 2.3
+
 
 利用R Markdown 製作《一周天氣預報》書面報告。
 
@@ -394,21 +396,21 @@ iris %>%
 
 利用R Markdown 製作《一周天氣預報》書面報告。
 
-- 計算05/23日當日的最高溫與最低溫度
+- 計算11/30日當日的最高溫與最低溫度
 
 ### **Hint：**
 1. 下載weatherbig5.csv到自己的電腦上
 2. 在R chunk中，利用read.csv()讀取檔案進行分析\
 MAC : read.csv(,fileEncoding="big5")
-3. 找出05/23當日最高溫 max()
-4. 找出05/23當日最低溫 min()
+3. 找出11/30當日最高溫 max()
+4. 找出11/30當日最低溫 min()
 5. use inline R chunk `r max()` 
 
 ## Answer - 3.1
 
 利用R Markdown 製作《一周天氣預報》書面報告。
 
-- 計算05/23日當日的最高溫與最低溫度
+- 計算11/30日當日的最高溫與最低溫度
 
 ```{r include=FALSE}
 # Hint for Linu& Mac：
@@ -426,6 +428,10 @@ min(dat[1:2, 4:5])
 # 預測高溫約`r max(dat[1:2,4:5])`度，低溫約`r min(dat[1:2,4:5])`度
 ```
 
+
+
+# Table in Rmarkdown
+
 ## 呈現表格 in Rmarkdown - 1
 
 - Print data directly:  
@@ -433,8 +439,6 @@ min(dat[1:2, 4:5])
 ```{r}
 print(head(women))
 ```
-
-# Table in Rmarkdown
 
 ## 呈現表格 in Rmarkdown - 1
 
@@ -563,7 +567,7 @@ knitr::kable(out)
 ```
 
 ## ...
-|         |05/23      |05/24      |05/25      |05/26      |05/27    |05/28 |05/29 |
+|         |11/30      |12/01      |12/02      |12/03      |12/04    |12/05 |12/06 |
 |:--------|:----------|:----------|:----------|:----------|:--------|:-----|:-----|
 |白天天氣 |陰短暫雨   |多雲短暫雨 |多雲短暫雨 |陰短暫雨   |多雲時陰 |多雲  |多雲  |
 |白天溫度 |32-24      |30-25      |26-23      |27-23      |27-23    |28-23 |28-23 |
@@ -587,10 +591,10 @@ knitr::kable(out)
 
 - 製作未來七天天氣預報圖
 
-```{r eval=FALSE}
+```{r eval=F}
 library(ggplot2)
 library(tidyr)
-dat1 <- mutate(weather, 時間=paste(日期,早晚,sep="\n"))
+dat1 <- mutate(dat, 時間=paste(日期,早晚,sep="\n"))
 dat2 <- select(dat1, 時間, 高溫, 低溫)
 dat3 <- gather(dat2,variable,value,2:3)
 
@@ -606,6 +610,10 @@ ggplot(dat3, aes(x=時間, y=value, group=variable, colour=variable)) +
 
 - 以上參考解答code的產出參考報告
 - [參考示範連結](https://pongponglin.github.io/2017NCCU_R/RMDsample.html#1)
+
+
+
+
 
 # Table of Contents
 
@@ -623,7 +631,7 @@ ggplot(dat3, aes(x=時間, y=value, group=variable, colour=variable)) +
 ---
 title: "你Rmarkdown的名稱"
 author: "名字"
-date: "2017/5/20"
+date: "2018/12/10"
 output:
   html_document:
     theme: united
@@ -642,7 +650,7 @@ output:
 ---
 title: "你Rmarkdown的名稱"
 author: "名字"
-date: "2017/5/20"
+date: "2018/12/10"
 output:
   html_document:
     theme: united
@@ -791,6 +799,41 @@ https://www.youtube.com/watch?v=OHKZLeKlUsM
 - [ptt R_Language版](https://www.ptt.cc/bbs/R_Language/index.html)
 - [R軟體使用者論壇](https://groups.google.com/forum/#!forum/taiwanruser)
 - [StackOverflow](http://stackoverflow.com/) 
-- 歡迎來信  nicole19940331@gmail.com 與我們一起交流！
+- 歡迎來信  glen84061945@gmail.com 與我們一起交流！
 
 # Thank You!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
