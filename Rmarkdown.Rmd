@@ -1,6 +1,6 @@
 ---
 title: "Rmarkdown"
-author: "Chun-Yen Chen (Source from DSP Data Lab)"
+author: "Chun-Yen Chen"
 date: "2018/12/10"
 output:
   ioslides_presentation:
@@ -382,7 +382,7 @@ iris %>%
 利用R Markdown 製作《一周天氣預報》書面報告。
 
 - [原始出處](http://www.cwb.gov.tw/V7/forecast/taiwan/Taipei_City.htm)
-- [範例資料下載](https://pongponglin.github.io/2017NCCU_R/data/weatherbig5.csv)
+- [範例資料下載](https://yen0619.github.io/Week04/data/weatherbig5.csv)
 
 ## 原始網頁  
 
@@ -399,9 +399,8 @@ iris %>%
 - 計算11/30日當日的最高溫與最低溫度
 
 ### **Hint：**
-1. 下載weatherbig5.csv到自己的電腦上
-2. 在R chunk中，利用read.csv()讀取檔案進行分析\
-MAC : read.csv(,fileEncoding="big5")
+1. 下載weather.csv到自己的電腦上
+2. 在R chunk中，利用read.csv()讀取檔案進行分析
 3. 找出11/30當日最高溫 max()
 4. 找出11/30當日最低溫 min()
 5. use inline R chunk `r max()` 
@@ -414,7 +413,7 @@ MAC : read.csv(,fileEncoding="big5")
 
 ```{r include=FALSE}
 # Hint for Linu& Mac：
-dat <- read.csv("data/weatherbig5.csv", fileEncoding="big5") 
+dat <- read.csv("data/weather.csv", fileEncoding="utf8") 
 max(dat[1:2, 4:5])
 min(dat[1:2, 4:5])
 # 預測高溫約`r max(dat[1:2,4:5])`度，低溫約`r min(dat[1:2,4:5])`度
@@ -422,7 +421,7 @@ min(dat[1:2, 4:5])
 
 ```{r eval=FALSE}
 # Hint for Windows：
-dat <- read.csv("data/weatherbig5.csv") 
+dat <- read.csv("data/weather.csv", fileEncoding="utf8") 
 max(dat[1:2, 4:5])
 min(dat[1:2, 4:5])
 # 預測高溫約`r max(dat[1:2,4:5])`度，低溫約`r min(dat[1:2,4:5])`度
@@ -567,12 +566,12 @@ knitr::kable(out)
 ```
 
 ## ...
-|         |11/30      |12/01      |12/02      |12/03      |12/04    |12/05 |12/06 |
+|         |12/03      |12/04      |12/05      |12/06      |12/07    |12/08 |12/09 |
 |:--------|:----------|:----------|:----------|:----------|:--------|:-----|:-----|
-|白天天氣 |陰短暫雨   |多雲短暫雨 |多雲短暫雨 |陰短暫雨   |多雲時陰 |多雲  |多雲  |
-|白天溫度 |32-24      |30-25      |26-23      |27-23      |27-23    |28-23 |28-23 |
-|晚上天氣 |多雲短暫雨 |多雲短暫雨 |陰短暫雨   |多雲短暫雨 |多雲     |多雲  |多雲  |
-|晚上溫度 |28-23      |27-23      |24-23      |25-23      |25-23    |25-23 |26-23 |
+|白天天氣 |晴時多雲   |多雲時晴 |陰時多雲短暫雨 |多雲時晴   |陰短暫雨 |陰短暫雨  |陰時多雲短暫雨  |
+|白天溫度 |30-20      |30-20      |22-19      |25-19      |19-18    |20-17 |23-19 |
+|晚上天氣 |多雲時晴 |陰短暫雨 |多雲短暫雨   |多雲時陰 |陰時多雲短暫雨     |陰短暫雨  |陰時多雲短暫雨  |
+|晚上溫度 |25-20      |24-19      |20-19      |22-19      |18-17    |19-19 |21-19 |
 
 
 ## Exercise - 3.3

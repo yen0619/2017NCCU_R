@@ -1,0 +1,56 @@
+---
+title: "小弟"
+author: "Chun-Yen Chen"
+date: "12/3/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 在地天氣報馬仔
+
+> 晴到多雲，日夜溫差大，早出晚歸建議多加件衣物以免著涼。
+
+>昨天（２日）天氣晴朗，清晨輻射冷卻影響，臺北站低溫20.3度，白天舒適溫暖，高溫30.5度，日夜溫差大。
+
+>今天（３日）仍為晴到多雲的天氣型態；白天溫暖，早晚稍涼，日夜溫差大，全日氣溫20至30度，早出晚歸建議多加件衣物以免著涼。
+
+
+
+
+# 台北市一週預報
+
+|         |12/03      |12/04      |12/05      |12/06      |12/07    |12/08 |12/09 |
+|:--------|:----------|:----------|:----------|:----------|:--------|:-----|:-----|
+|白天天氣 |晴時多雲   |多雲時晴 |陰時多雲短暫雨 |多雲時晴   |陰短暫雨 |陰短暫雨  |陰時多雲短暫雨  |
+|白天溫度 |30-20      |30-20      |22-19      |25-19      |19-18    |20-17 |23-19 |
+|晚上天氣 |多雲時晴 |陰短暫雨 |多雲短暫雨   |多雲時陰 |陰時多雲短暫雨     |陰短暫雨  |陰時多雲短暫雨  |
+|晚上溫度 |25-20      |24-19      |20-19      |22-19      |18-17    |19-19 |21-19 |
+
+#未來7天預報圖
+
+```{r echo=F , message=F}
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(magrittr)
+dat <- read.csv("~/Documents/2018NCCU_R/week04/data/weather.csv",fileEncoding = "utf8")
+# dat$早晚 <- factor(dat$早晚,levels = c("白天","晚上"))
+dat1 <- mutate(dat, 時間=paste(日期,早晚,sep="\n"))
+dat2 <- select(dat1, 時間, 高溫, 低溫)
+dat3 <- gather(dat2,variable,value,2:3)
+dat3$時間 <- factor(dat3$時間,levels = c('12/3\n白天','12/3\n晚上','12/4\n白天','12/4\n晚上','12/5\n白天','12/5\n晚上','12/6\n白天','12/6\n晚上','12/7\n白天','12/7\n晚上','12/8\n白天','12/8\n晚上','12/9\n白天','12/9\n晚上'))
+ggplot(dat3, aes(x=時間, y=value, group=variable, colour=variable)) + 
+  geom_line() + 
+  labs(x="時間", y="溫度") +
+  theme(text  = element_text(size = 13 ,family = "PingFangTC-Medium")) + # 顯示中文字 Mac user only
+  theme(axis.text.x = element_text(size = 10,face = "bold", vjust = 0.5, hjust = 1)) 
+```
+
+
+
+
+
+
