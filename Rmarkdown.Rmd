@@ -382,15 +382,15 @@ iris %>%
 利用R Markdown 製作《一周天氣預報》書面報告。
 
 - [原始出處](http://www.cwb.gov.tw/V7/forecast/taiwan/Taipei_City.htm)
-- [範例資料下載](https://yen0619.github.io/Week04/data/weatherbig5.csv)
+- [範例資料下載](https://yen0619.github.io/2018_NCCU_R/data/weather.csv)
 
 ## 原始網頁  
 
 <center><img  src="img/RMDexercise3.1.png" width="800"></center>  
 
 ## Rmarkdown 呈現
-[範例連結](https://pongponglin.github.io/2017NCCU_R/RMDsample.html)
-<center><img  src="img/exam_q1_1.png" width="750"></center>  
+[範例連結](https://yen0619.github.io/2018_NCCU_R/weatherdemo.html)
+<center><img  src="img/exam_q1_1_1.png" width="750" ></center>  
 
 ## Exercise - 3.1
 
@@ -401,15 +401,15 @@ iris %>%
 ### **Hint：**
 1. 下載weather.csv到自己的電腦上
 2. 在R chunk中，利用read.csv()讀取檔案進行分析
-3. 找出11/30當日最高溫 max()
-4. 找出11/30當日最低溫 min()
+3. 找出12/03當日最高溫 max()
+4. 找出12/03當日最低溫 min()
 5. use inline R chunk `r max()` 
 
 ## Answer - 3.1
 
 利用R Markdown 製作《一周天氣預報》書面報告。
 
-- 計算11/30日當日的最高溫與最低溫度
+- 計算12/03日當日的最高溫與最低溫度
 
 ```{r include=FALSE}
 # Hint for Linu& Mac：
@@ -445,10 +445,10 @@ print(head(women))
 - 在 Chunk 後面的參數多加上`results='asis'` 
 - 在 Chunk 裡面打上`knitr::kable`，呈現表格在output上 
   
-  <pre class="markdown"><code>&#96;&#96;&#96;{r, results='asis'}
-  knitr::kable(women)
-  &#96;&#96;&#96;
-  </code></pre>
+<pre class="markdown"><code>&#96;&#96;&#96;{r, results='asis'}
+knitr::kable(women)
+&#96;&#96;&#96;
+</code></pre>
 <center><img  src="img/RMDtable.png" width="600"></center>  
 
 
@@ -544,11 +544,11 @@ datatable(cars, options = list(pageLength = 5)) %>% formatStyle( 'dist' ,
 day1 <- filter(dat, 早晚=="白天")
 day2 <- mutate(day1, 溫度=paste(高溫,低溫,sep="-"))
 day3 <- select(day2, 天氣, 溫度)
-
+# day3 %>% filter(早晚=="白天") %>% mutate(溫度=paste(高溫,低溫,sep="-")) %>% select(天氣, 溫度)
 night1 <- filter(dat, 早晚=="晚上")
 night2 <- mutate(night1, 溫度=paste(高溫,低溫,sep="-"))
 night3 <- select(night2, 天氣, 溫度)
-
+# night3 %>% filter(早晚=="晚上") %>% mutate(溫度=paste(高溫,低溫,sep="-")) %>% select(天氣, 溫度)
 out <- data.frame(t(bind_cols(day3, night3)))
 colnames(out) <- day1$日期
 rownames(out) <- c("白天天氣","白天溫度","晚上天氣","晚上溫度")
@@ -608,7 +608,7 @@ ggplot(dat3, aes(x=時間, y=value, group=variable, colour=variable)) +
 ### 利用R Markdown 製作《一周天氣預報》書面報告。
 
 - 以上參考解答code的產出參考報告
-- [參考示範連結](https://pongponglin.github.io/2017NCCU_R/RMDsample.html#1)
+- [參考示範連結](https://yen0619.github.io/2018_NCCU_R/weatherdemo.html)
 
 
 
@@ -617,7 +617,7 @@ ggplot(dat3, aes(x=時間, y=value, group=variable, colour=variable)) +
 # Table of Contents
 
 ##  目錄
-- Rmarkdown 有提供目錄的功能
+- Rmarkdown 有提供[目錄](https://yen0619.github.io/2018_NCCU_R/TocExample.html)的功能
 - 文件長時方便尋找
 <center><img  src="img/RMDcatlog.png" width="800"></center>  
 
@@ -625,6 +625,7 @@ ggplot(dat3, aes(x=時間, y=value, group=variable, colour=variable)) +
 
 - 將以下複製貼上到Rmarkdown的開頭
 - `theme: united` 表示目錄的主題選擇為 `united`，可以變動
+- [R Markdown Theme Gallery](http://www.datadreaming.org/post/r-markdown-theme-gallery/)
 
 ```
 ---
