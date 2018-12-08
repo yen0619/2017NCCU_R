@@ -642,7 +642,7 @@ output:
 
 ##  新增目錄
 
-- 目錄的長寬可以變動：透過`fig_width`以及`fig_height: 7.5`參數調整
+- 報告內圖片的長寬可以變動：透過`fig_width`以及`fig_height: 7.5`參數調整
 - `toc_depth`表示顯示到多大的標題
     - ex: `toc_depth: 4` 會顯示有少於或等於四個井字號 `####` 的標題
     
