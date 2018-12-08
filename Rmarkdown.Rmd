@@ -396,7 +396,7 @@ iris %>%
 
 利用R Markdown 製作《一周天氣預報》書面報告。
 
-- 計算11/30日當日的最高溫與最低溫度
+- 計算12/03日當日的最高溫與最低溫度
 
 ### **Hint：**
 1. 下載weather.csv到自己的電腦上
@@ -617,7 +617,7 @@ ggplot(dat3, aes(x=時間, y=value, group=variable, colour=variable)) +
 # Table of Contents
 
 ##  目錄
-- Rmarkdown 有提供[目錄](https://yen0619.github.io/2018_NCCU_R/TocExample.html)的功能
+- Rmarkdown 有提供[目錄](http://rpubs.com/yen0619/448059)的功能
 - 文件長時方便尋找
 <center><img  src="img/RMDcatlog.png" width="800"></center>  
 
