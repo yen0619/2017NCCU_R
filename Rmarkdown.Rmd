@@ -403,7 +403,7 @@ iris %>%
 2. 在R chunk中，利用read.csv()讀取檔案進行分析
 3. 找出12/03當日最高溫 max()
 4. 找出12/03當日最低溫 min()
-5. use inline R chunk `r max()` 
+5. use inline R code  \`r\ max()`  
 
 ## Answer - 3.1
 
